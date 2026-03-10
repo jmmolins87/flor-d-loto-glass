@@ -5,12 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "next build && next start",
+    "lint": "eslint",
+    "sanity": "sanity dev"
   },
   "dependencies": {
     "@base-ui/react": "^1.2.0",
     "@hookform/resolvers": "^5.2.2",
+    "@portabletext/react": "^6.0.3",
     "@sanity/icons": "^3.7.4",
     "@sanity/image-url": "^2.0.3",
     "@sanity/presentation": "^2.0.0",
@@ -42,5 +44,6 @@
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "pnpm@10.32.0+sha512.9b2634bb3fed5601c33633f2d92593f506270a3963b8c51d2b2d6a828da615ce4e9deebef9614ccebbc13ac8d3c0f9c9ccceb583c69c8578436fa477dbb20d70"
 }
