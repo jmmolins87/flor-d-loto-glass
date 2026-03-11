@@ -4,6 +4,7 @@ export const siteSettings = defineType({
   name: "siteSettings",
   title: "Ajustes del sitio",
   type: "document",
+  description: "Datos globales de marca, contacto, logo y configuracion general.",
   fields: [
     defineField({
       name: "siteName",

@@ -4,6 +4,7 @@ export const contactPage = defineType({
   name: "contactPage",
   title: "Contacto",
   type: "document",
+  description: "Edita el contenido de la pagina de contacto, mensajes y bloques de ayuda.",
   fields: [
     defineField({ name: "seo", title: "SEO", type: "seoFields" }),
     defineField({

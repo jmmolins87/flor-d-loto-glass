@@ -35,6 +35,7 @@ export type IntroBlock = {
 
 export type Collection = {
   _id?: string;
+  _updatedAt?: string;
   title: string;
   slug: { current: string };
   excerpt?: string;
@@ -47,6 +48,7 @@ export type Collection = {
 
 export type Occasion = {
   _id?: string;
+  _updatedAt?: string;
   title: string;
   slug: { current: string };
   excerpt?: string;

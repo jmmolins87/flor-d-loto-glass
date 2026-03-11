@@ -37,12 +37,20 @@ export const fallbackSiteSettings: SiteSettings = {
   siteDescription:
     "Ramos contemporaneos, flores frescas y arreglos con sensibilidad artesanal para regalar y celebrar.",
   phone: "+34 691 26 41 12",
-  email: "hola@flordelotosegovia.com",
+  email: "flordelotosegovia@gmail.com",
   whatsapp: "+34 691 26 41 12",
   address: "P.º Conde de Sepulveda, 24, 40006 Segovia, Segovia",
   socialLinks: [
-    { label: "Instagram", href: "https://instagram.com", openInNewTab: true },
-    { label: "Pinterest", href: "https://pinterest.com", openInNewTab: true },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/flordelotosegovia/",
+      openInNewTab: true,
+    },
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/profile.php?id=100093329264769",
+      openInNewTab: true,
+    },
   ],
   openingHours: [
     { day: "Estado actual", hours: "Cerrado · Apertura: 10:00 (mie)" },
@@ -359,7 +367,7 @@ export const fallbackHomePage: HomePage = {
       "Ramos de temporada, colecciones delicadas y una experiencia de compra clara y elegante.",
   },
   hero: {
-    eyebrow: "Floristeria contemporanea en Madrid",
+    eyebrow: "Floristeria contemporanea en Segovia",
     title: "Flores con gesto sereno, composicion cuidada y compra facil.",
     subtitle:
       "Diseñamos ramos y arreglos con una mirada actual: frescos, elegantes y listos para regalar o llenar de vida cualquier espacio.",
@@ -392,7 +400,7 @@ export const fallbackHomePage: HomePage = {
     image: { url: studioImage, alt: "Interior de estudio floral" },
   },
   finalCta: {
-    title: "Si quieres regalar bien, te lo ponemos facil.",
+    title: "Cuéntanos qué necesitas y te ayudamos a prepararlo.",
     text: "Escribe, cuentanos la ocasion y te proponemos una solucion floral afinada, clara y lista para producir.",
     primaryCta: { label: "Contactar", href: "/contacto" },
     secondaryCta: { label: "Explorar ocasiones", href: "/ocasiones" },
@@ -449,14 +457,14 @@ export const fallbackContactPage: ContactPageData = {
       title: "Email",
       description: "Ideal para eventos, presupuestos y colaboraciones.",
       label: "Enviar email",
-      value: "hola@flordelotosegovia.com",
-      href: "mailto:hola@flordelotosegovia.com",
+      value: "flordelotosegovia@gmail.com",
+      href: "mailto:flordelotosegovia@gmail.com",
     },
   ],
   formText:
     "Cuanto mas contexto nos des, mejor podremos proponerte una solucion floral ajustada.",
   locationText:
-    "Estamos en P.º Conde de Sepulveda, 24, 40006 Segovia, en la provincia de Segovia. Ahora mismo figura como cerrado y con apertura a las 10:00 del miercoles.",
+    "Estamos en P.º Conde de Sepulveda, 24, 40006 Segovia, con atencion local para recogidas, encargos y entregas en la zona.",
   mapEmbed:
     "https://www.google.de/maps/place/P.%C2%BA+Conde+de+Sep%C3%BAlveda,+24,+40006+Segovia/@40.9380204,-4.1174955,17z/data=!3m1!4b1!4m6!3m5!1s0xd413ee3709ba6af:0x313b9efdebadc9d5!8m2!3d40.9380204!4d-4.1149206!16s%2Fg%2F11bw44h0yb?entry=ttu&g_ep=EgoyMDI2MDMwOC4wIKXMDSoASAFQAw%3D%3D",
 };
@@ -522,7 +530,7 @@ export const fallbackLegalPages: Record<"cookies" | "privacy", LegalPageData> = 
         children: [
           {
             _type: "span",
-            text: "Puedes solicitar acceso, rectificacion o eliminacion escribiendo a hola@flordelotosegovia.com.",
+            text: "Puedes solicitar acceso, rectificacion o eliminacion escribiendo a flordelotosegovia@gmail.com.",
           },
         ],
       },

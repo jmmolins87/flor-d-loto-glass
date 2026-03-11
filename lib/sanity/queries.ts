@@ -103,6 +103,7 @@ export const homePageQuery = groq`*[_type == "homePage"][0]{
 
 export const collectionsQuery = groq`*[_type == "collection"] | order(featured desc, title asc){
   _id,
+  _updatedAt,
   title,
   slug,
   excerpt,
@@ -115,6 +116,7 @@ export const collectionsQuery = groq`*[_type == "collection"] | order(featured d
 
 export const collectionBySlugQuery = groq`*[_type == "collection" && slug.current == $slug][0]{
   _id,
+  _updatedAt,
   title,
   slug,
   excerpt,
@@ -127,6 +129,7 @@ export const collectionBySlugQuery = groq`*[_type == "collection" && slug.curren
 
 export const occasionsQuery = groq`*[_type == "occasion"] | order(featured desc, title asc){
   _id,
+  _updatedAt,
   title,
   slug,
   excerpt,
@@ -138,6 +141,7 @@ export const occasionsQuery = groq`*[_type == "occasion"] | order(featured desc,
 
 export const occasionBySlugQuery = groq`*[_type == "occasion" && slug.current == $slug][0]{
   _id,
+  _updatedAt,
   title,
   slug,
   excerpt,

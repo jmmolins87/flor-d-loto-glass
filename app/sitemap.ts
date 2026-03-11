@@ -26,11 +26,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
     ...collections.map((item) => ({
       url: `${siteConfig.url}/catalogo/${item.slug.current}`,
-      lastModified: new Date(),
+      lastModified: item._updatedAt ? new Date(item._updatedAt) : new Date(),
     })),
     ...occasions.map((item) => ({
       url: `${siteConfig.url}/ocasiones/${item.slug.current}`,
-      lastModified: new Date(),
+      lastModified: item._updatedAt ? new Date(item._updatedAt) : new Date(),
     })),
   ];
 }

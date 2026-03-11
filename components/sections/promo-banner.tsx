@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { CmsImage } from "@/components/shared/cms-image";
+import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { buttonVariants } from "@/lib/button-styles";
 import type { PromoBannerData } from "@/lib/sanity/types";
 
@@ -11,7 +12,7 @@ export function PromoBanner({ banner }: { banner?: PromoBannerData | null }) {
 
   return (
     <section className="shell section-space">
-      <div className="surface overflow-hidden">
+      <ScrollReveal className="surface overflow-hidden" distance={36}>
         <div className="grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="relative min-h-[320px] lg:min-h-[100%]">
             <CmsImage
@@ -38,7 +39,7 @@ export function PromoBanner({ banner }: { banner?: PromoBannerData | null }) {
             ) : null}
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

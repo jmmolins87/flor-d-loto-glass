@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { buttonVariants } from "@/lib/button-styles";
 
 export function EmptyState({
@@ -14,7 +15,7 @@ export function EmptyState({
   cta?: string;
 }) {
   return (
-    <div className="surface flex flex-col items-start gap-4 p-8 md:p-10">
+    <ScrollReveal className="surface flex flex-col items-start gap-4 p-8 md:p-10" distance={28}>
       <span className="eyebrow">Contenido pendiente</span>
       <div className="space-y-2">
         <h2 className="text-3xl text-foreground">{title}</h2>
@@ -23,6 +24,6 @@ export function EmptyState({
       <Link className={buttonVariants()} href={href}>
         {cta}
       </Link>
-    </div>
+    </ScrollReveal>
   );
 }

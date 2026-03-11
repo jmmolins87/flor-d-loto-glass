@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Flower2, MapPin, Sparkles } from "lucide-react";
 
 import { CmsImage } from "@/components/shared/cms-image";
+import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/lib/button-styles";
 import type { HeroData } from "@/lib/sanity/types";
@@ -10,7 +11,7 @@ export function HeroSection({ hero }: { hero: HeroData }) {
   return (
     <section className="shell section-space pt-10">
       <div className="section-grid items-center lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="space-y-8">
+        <ScrollReveal className="space-y-8" distance={40}>
           <div className="space-y-6">
             {hero.eyebrow ? <Badge className="rounded-full px-3 py-1">{hero.eyebrow}</Badge> : null}
             <h1 className="max-w-3xl text-6xl leading-[0.92] text-foreground md:text-7xl">
@@ -58,8 +59,13 @@ export function HeroSection({ hero }: { hero: HeroData }) {
               </Link>
             ) : null}
           </div>
-        </div>
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-white/58 p-3 shadow-[0_40px_100px_-50px_rgba(40,65,48,0.45)] backdrop-blur-xl">
+        </ScrollReveal>
+        <ScrollReveal
+          className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-white/58 p-3 shadow-[0_40px_100px_-50px_rgba(40,65,48,0.45)] backdrop-blur-xl"
+          delay={140}
+          direction="left"
+          distance={48}
+        >
           <div className="absolute -left-10 top-12 h-36 w-36 rounded-full bg-[radial-gradient(circle,rgba(143,229,214,0.7),transparent_68%)] blur-2xl" />
           <div className="absolute -right-8 bottom-10 h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(190,154,255,0.62),transparent_70%)] blur-2xl" />
           <div className="absolute inset-x-8 top-8 z-10 flex justify-between text-base uppercase tracking-[0.24em] text-white/90">
@@ -75,7 +81,7 @@ export function HeroSection({ hero }: { hero: HeroData }) {
               className="object-cover"
             />
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

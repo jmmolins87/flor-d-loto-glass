@@ -25,15 +25,10 @@ export function CookiePreferencesDialog({
 
   return (
     <Dialog>
-      <DialogTrigger
-        render={
-          <Button
-            variant="ghost"
-            className="h-auto cursor-pointer px-0 text-base text-foreground/70"
-          />
-        }
-      >
-        Configurar cookies
+      <DialogTrigger asChild>
+        <Button variant="ghost" className="h-auto cursor-pointer px-0 text-base text-foreground/70">
+          Configurar cookies
+        </Button>
       </DialogTrigger>
       <DialogContent className="rounded-[1.5rem] border-white/80 bg-[#fffaf7] sm:max-w-xl">
         <DialogHeader>

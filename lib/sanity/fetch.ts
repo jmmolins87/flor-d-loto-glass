@@ -1,5 +1,7 @@
 import "server-only";
 
+import { draftMode } from "next/headers";
+
 import type {
   AboutPageData,
   Collection,
@@ -21,7 +23,7 @@ import {
   fallbackSiteSettings,
 } from "@/lib/fallback-content";
 import { sanityClient } from "@/lib/sanity/client";
-import { sanityEnabled } from "@/lib/sanity/env";
+import { sanityEnabled, useCdn } from "@/lib/sanity/env";
 import {
   aboutPageQuery,
   collectionBySlugQuery,
@@ -35,6 +37,31 @@ import {
   siteSettingsQuery,
 } from "@/lib/sanity/queries";
 
+const sanityFetchOptions =
+  process.env.NODE_ENV === "production"
+    ? { next: { revalidate: 60 } }
+    : { cache: "no-store" as const };
+
+const SANITY_FETCH_TIMEOUT_MS = 8_000;
+
+async function withTimeout<T>(promise: Promise<T>, timeoutMs = SANITY_FETCH_TIMEOUT_MS) {
+  let timeoutId: ReturnType<typeof setTimeout> | undefined;
+
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    timeoutId = setTimeout(() => {
+      reject(new Error("Sanity fetch timed out"));
+    }, timeoutMs);
+  });
+
+  try {
+    return await Promise.race([promise, timeoutPromise]);
+  } finally {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+  }
+}
+
 async function fetchOrFallback<T>(
   query: string,
   fallback: T,
@@ -45,9 +72,18 @@ async function fetchOrFallback<T>(
   }
 
   try {
-    const data = await sanityClient.fetch<T | null>(query, params || {}, {
-      next: { revalidate: 60 },
+    const isDraftMode = (await draftMode()).isEnabled;
+    const client = sanityClient.withConfig({
+      perspective: isDraftMode ? "drafts" : "published",
+      stega: { enabled: isDraftMode },
+      token: process.env.SANITY_API_READ_TOKEN,
+      useCdn: isDraftMode ? false : useCdn,
     });
+    const fetchClient = isDraftMode ? client : sanityClient;
+    const fetchOptions = isDraftMode ? { cache: "no-store" as const } : sanityFetchOptions;
+    const data = await withTimeout(
+      fetchClient.fetch<T | null>(query, params || {}, fetchOptions),
+    );
 
     return data ?? fallback;
   } catch {
@@ -92,7 +128,13 @@ export async function getOccasionBySlug(slug: string) {
 }
 
 export function getAboutPage(): Promise<AboutPageData> {
-  return fetchOrFallback(aboutPageQuery, fallbackAboutPage);
+  return fetchOrFallback(aboutPageQuery, fallbackAboutPage).then((page) => ({
+    ...fallbackAboutPage,
+    ...page,
+    bodySections: Array.isArray(page.bodySections)
+      ? page.bodySections
+      : fallbackAboutPage.bodySections,
+  }));
 }
 
 export function getContactPage(): Promise<ContactPageData> {

@@ -6,8 +6,12 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
     "http://localhost:3000",
   locale: "es_ES",
+  language: "es",
+  country: "ES",
+  ogImage: "/opengraph-image",
   keywords: [
     "floristeria premium",
+    "floristeria en Segovia",
     "ramos a domicilio",
     "flores frescas",
     "floristeria moderna",

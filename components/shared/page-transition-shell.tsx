@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export function PageTransitionShell({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const [isReady, setIsReady] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const timeout = window.setTimeout(() => {
@@ -14,6 +16,10 @@ export function PageTransitionShell({
 
     return () => window.clearTimeout(timeout);
   }, []);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
 
   return (
     <div className="relative">

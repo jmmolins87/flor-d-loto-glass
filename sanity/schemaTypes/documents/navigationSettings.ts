@@ -4,6 +4,7 @@ export const navigationSettings = defineType({
   name: "navigationSettings",
   title: "Navegacion",
   type: "document",
+  description: "Enlaces visibles en el header y en el footer de la web.",
   fields: [
     defineField({
       name: "headerLinks",

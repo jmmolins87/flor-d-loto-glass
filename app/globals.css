@@ -49,11 +49,10 @@
 }
 
 :root {
-  --font-sans:
-    "Avenir Next", "Manrope", "Segoe UI", "Helvetica Neue", sans-serif;
-  --font-serif:
-    "IvyPresto Display", "Cormorant Garamond", "Iowan Old Style",
-    "Palatino Linotype", serif;
+  --font-body: "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", serif;
+  --font-sans: var(--font-body), "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-serif: var(--font-display), "Iowan Old Style", "Palatino Linotype", serif;
   --background: oklch(0.986 0.014 95.7);
   --foreground: oklch(0.24 0.03 40.2);
   --card: oklch(0.995 0.008 91.4);
@@ -130,6 +129,17 @@
 @layer components {
   .shell {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+
+  @media (max-width: 639px) {
+    [data-radix-popper-content-wrapper] {
+      width: 100vw !important;
+      min-width: 100vw !important;
+      max-width: 100vw !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+    }
   }
 
   .surface {

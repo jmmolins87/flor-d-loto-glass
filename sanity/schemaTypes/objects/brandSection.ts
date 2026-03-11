@@ -4,6 +4,7 @@ export const brandSection = defineType({
   name: "brandSection",
   title: "Bloque de marca",
   type: "object",
+  description: "Seccion editorial de la home para explicar el tono y diferencial de la marca.",
   fields: [
     defineField({
       name: "title",

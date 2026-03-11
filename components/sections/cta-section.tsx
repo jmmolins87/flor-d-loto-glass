@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { buttonVariants } from "@/lib/button-styles";
 import type { LinkItem } from "@/lib/sanity/types";
 
@@ -16,10 +17,10 @@ export function CTASection({
 }) {
   return (
     <section className="shell section-space">
-      <div className="surface px-8 py-10 md:px-12 md:py-14">
+      <ScrollReveal className="surface px-8 py-10 md:px-12 md:py-14" distance={36}>
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl space-y-4">
-            <span className="eyebrow">CTA final</span>
+            <span className="eyebrow">Encargo y contacto</span>
             <h2 className="text-4xl leading-tight text-foreground md:text-5xl">
               {title}
             </h2>
@@ -48,7 +49,7 @@ export function CTASection({
             ) : null}
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

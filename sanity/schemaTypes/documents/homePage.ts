@@ -4,6 +4,7 @@ export const homePage = defineType({
   name: "homePage",
   title: "Inicio",
   type: "document",
+  description: "Controla los textos, imagenes y bloques principales de la home.",
   fields: [
     defineField({ name: "seo", title: "SEO", type: "seoFields" }),
     defineField({ name: "hero", title: "Hero", type: "heroSection" }),
@@ -48,7 +49,7 @@ export const homePage = defineType({
     }),
     defineField({
       name: "finalCta",
-      title: "CTA final",
+      title: "Bloque final de contacto",
       type: "finalCta",
     }),
   ],

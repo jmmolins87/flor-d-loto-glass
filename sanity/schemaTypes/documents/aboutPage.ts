@@ -4,6 +4,7 @@ export const aboutPage = defineType({
   name: "aboutPage",
   title: "Sobre nosotros",
   type: "document",
+  description: "Contenido editorial de la pagina de marca y presentacion del negocio.",
   fields: [
     defineField({ name: "seo", title: "SEO", type: "seoFields" }),
     defineField({
