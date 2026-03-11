@@ -1,12 +1,44 @@
 import Link from "next/link";
-import { Flower2, Sparkles } from "lucide-react";
+import { Leaf, Sparkles } from "lucide-react";
 
 import { CmsImage } from "@/components/shared/cms-image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Collection } from "@/lib/sanity/types";
 
+function getCollectionBadge(collection: Collection) {
+  const source = `${collection.title} ${collection.slug.current}`.toLowerCase();
+
+  if (source.includes("novia") || source.includes("boda")) {
+    return "Especial bodas";
+  }
+
+  if (source.includes("evento")) {
+    return "Para celebraciones";
+  }
+
+  if (source.includes("casa") || source.includes("hogar") || source.includes("planta")) {
+    return "Para tu espacio";
+  }
+
+  if (source.includes("funeral") || source.includes("corona")) {
+    return "Acompañamiento floral";
+  }
+
+  if (source.includes("preservada")) {
+    return "Larga duracion";
+  }
+
+  if (source.includes("cesta") || source.includes("centro")) {
+    return "Formato especial";
+  }
+
+  return "Coleccion floral";
+}
+
 export function CollectionCard({ collection }: { collection: Collection }) {
+  const badgeLabel = getCollectionBadge(collection);
+
   return (
     <Link href={`/catalogo/${collection.slug.current}`}>
       <Card className="group h-full overflow-hidden rounded-[1.75rem] border-white/80 bg-white/78 pt-0 transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_30px_70px_-45px_rgba(38,60,48,0.45)]">
@@ -27,8 +59,8 @@ export function CollectionCard({ collection }: { collection: Collection }) {
               </Badge>
             ) : null}
             <Badge variant="outline">
-              <Flower2 className="mr-1 size-3.5" />
-              Producto floral
+              <Leaf className="mr-1 size-3.5" />
+              {badgeLabel}
             </Badge>
           </div>
           <div className="space-y-2">

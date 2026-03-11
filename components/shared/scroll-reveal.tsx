@@ -1,7 +1,9 @@
 "use client";
 
-import type { ReactNode } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from "react";
+import { createElement } from "react";
+
+import { cn } from "@/lib/utils";
 
 type ScrollRevealProps = {
   as?: "article" | "div" | "li" | "section" | "span";
@@ -13,27 +15,19 @@ type ScrollRevealProps = {
   once?: boolean;
 };
 
-const motionComponents = {
-  article: motion.article,
-  div: motion.div,
-  li: motion.li,
-  section: motion.section,
-  span: motion.span,
-};
-
-function getHiddenState(direction: ScrollRevealProps["direction"], distance: number) {
+function getTransform(direction: ScrollRevealProps["direction"], distance: number) {
   switch (direction) {
     case "down":
-      return { opacity: 0, y: -distance, filter: "blur(10px)" };
+      return `translate3d(0, -${distance}px, 0)`;
     case "left":
-      return { opacity: 0, x: -distance, filter: "blur(10px)" };
+      return `translate3d(-${distance}px, 0, 0)`;
     case "right":
-      return { opacity: 0, x: distance, filter: "blur(10px)" };
+      return `translate3d(${distance}px, 0, 0)`;
     case "scale":
-      return { opacity: 0, scale: 0.94, filter: "blur(10px)" };
+      return "scale(0.94)";
     case "up":
     default:
-      return { opacity: 0, y: distance, filter: "blur(10px)" };
+      return `translate3d(0, ${distance}px, 0)`;
   }
 }
 
@@ -46,26 +40,78 @@ export function ScrollReveal({
   distance = 32,
   once = true,
 }: ScrollRevealProps) {
-  const prefersReducedMotion = useReducedMotion();
-  const MotionComponent = motionComponents[as];
+  const ref = useRef<HTMLElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
-  if (prefersReducedMotion) {
-    return <MotionComponent className={className}>{children}</MotionComponent>;
-  }
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
 
-  return (
-    <MotionComponent
-      className={className}
-      initial={getHiddenState(direction, distance)}
-      whileInView={{ opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)" }}
-      viewport={{ once, amount: 0.2, margin: "0px 0px -8% 0px" }}
-      transition={{
-        duration: 0.8,
-        delay: delay / 1000,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-    >
-      {children}
-    </MotionComponent>
+    updatePreference();
+    mediaQuery.addEventListener("change", updatePreference);
+
+    return () => mediaQuery.removeEventListener("change", updatePreference);
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
+    const node = ref.current;
+
+    if (!node) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsVisible(true);
+
+          if (once) {
+            observer.disconnect();
+          }
+        } else if (!once) {
+          setIsVisible(false);
+        }
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -8% 0px",
+      },
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [once, prefersReducedMotion]);
+
+  const Component = as;
+  const style: CSSProperties = prefersReducedMotion
+    ? {}
+    : {
+        opacity: isVisible ? 1 : 0,
+        filter: isVisible ? "blur(0px)" : "blur(10px)",
+        transform: isVisible ? "translate3d(0, 0, 0) scale(1)" : getTransform(direction, distance),
+        transitionDelay: `${delay}ms`,
+        transitionDuration: "800ms",
+        transitionProperty: "opacity, transform, filter",
+        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+        willChange: "opacity, transform, filter",
+      };
+
+  return createElement(
+    Component,
+    {
+      ref: (node: HTMLElement | null) => {
+        ref.current = node;
+      },
+      className: cn(className),
+      style,
+    },
+    children,
   );
 }

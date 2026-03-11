@@ -146,19 +146,28 @@ export default async function HomePage() {
             return (
               <ScrollReveal key={service.title} className="h-full" delay={index * 110} distance={28}>
                 <div className="surface flex h-full flex-col p-7">
-                  <Badge className="rounded-full px-4 py-2">
-                    <Icon className="mr-2 size-4" />
-                    {service.badge}
-                  </Badge>
-                  <h3 className="mt-5 text-3xl text-foreground">{service.title}</h3>
-                  <p className="mt-4 text-base leading-8 text-foreground/72">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <Badge className="rounded-full px-4 py-2">
+                        <Icon className="mr-2 size-4" />
+                        {service.badge}
+                      </Badge>
+                      <h3 className="mt-5 max-w-[14ch] text-3xl leading-tight text-foreground">
+                        {service.title}
+                      </h3>
+                    </div>
+                    <div className="flex size-12 shrink-0 items-center justify-center rounded-full border border-primary/12 bg-white/55 text-primary">
+                      <Icon className="size-5" />
+                    </div>
+                  </div>
+                  <p className="mt-4 max-w-[52ch] text-base leading-8 text-foreground/72">
                     {service.description}
                   </p>
-                  <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
+                  <div className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-1">
                     {service.details.map((detail) => (
                       <div
                         key={detail.label}
-                        className="rounded-[1.25rem] border border-primary/10 bg-white/38 px-4 py-4"
+                        className="rounded-[1.25rem] border border-primary/10 bg-white/42 px-4 py-4"
                       >
                         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/80">
                           {detail.label}
@@ -169,13 +178,19 @@ export default async function HomePage() {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-6 grid gap-3">
+                  <div className="mt-7">
+                    <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/80">
+                      Incluye
+                    </p>
+                  </div>
+                  <div className="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
                     {service.bullets.map((item) => (
                       <div
                         key={item}
-                        className="rounded-[1.25rem] border border-white/70 bg-white/45 px-4 py-3 text-base leading-7 text-foreground/72"
+                        className="flex min-h-[84px] items-start rounded-[1.25rem] border border-white/70 bg-white/45 px-4 py-3"
                       >
-                        {item}
+                        <span className="mt-1 mr-3 block size-2.5 shrink-0 rounded-full bg-primary/70" />
+                        <span className="text-base leading-7 text-foreground/72">{item}</span>
                       </div>
                     ))}
                   </div>

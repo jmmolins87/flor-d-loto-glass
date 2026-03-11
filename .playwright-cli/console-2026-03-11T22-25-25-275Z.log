@@ -1,0 +1,57 @@
+[    3205ms] Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndFocusHandler segmentPath={[...]}>
+      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{...}} segmentPath={[...]} ...>
+                      <SegmentViewNode type="layout" pagePath="(site)/lay...">
+                        <SegmentTrieNode>
+                        <script>
+                        <script>
+                        <script>
+                        <script>
+                        <script>
+                        <SiteLayout>
+                          <script>
+                          <header>
+                          <main>
+                          <footer>
+                          <SiteLayout>
+                            <CookieBanner>
++                             <div className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-4xl">
+-                             <section
+-                               aria-label="Notifications alt+T"
+-                               tabindex="-1"
+-                               aria-live="polite"
+-                               aria-relevant="additions text"
+-                               aria-atomic="false"
+-                             >
+                          ...
+                    ...
+        ...
+
+    at throwOnHydrationMismatch (http://localhost:3000/_next/static/chunks/5e669_next_dist_compiled_react-dom_e797d4c4._.js:3348:56)
+    at beginWork (http://localhost:3000/_next/static/chunks/5e669_next_dist_compiled_react-dom_e797d4c4._.js:6775:918)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/5e669_next_dist_compiled_react-dom_e797d4c4._.js:965:74)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/5e669_next_dist_compiled_react-dom_e797d4c4._.js:9562:97)
+    at workLoopConcurrentByScheduler (http://localhost:3000/_next/static/chunks/5e669_next_dist_compiled_react-dom_e797d4c4._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3000/_next/static/chunks/5e669_next_dist_compiled_react-dom_e797d4c4._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/5e669_next_dist_compiled_react-dom_e797d4c4._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3000/_next/static/chunks/5e669_next_dist_compiled_react-dom_e797d4c4._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3000/_next/static/chunks/5e669_next_dist_compiled_fa366b7e._.js:2647:64)

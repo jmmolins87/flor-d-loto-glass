@@ -1,0 +1,422 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e6] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e7]:
+      - img [ref=e8]
+    - generic [ref=e11]:
+      - button "Open issues overlay" [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]: "0"
+          - generic [ref=e15]: "1"
+        - generic [ref=e16]: Issue
+      - button "Collapse issues badge" [ref=e17]:
+        - img [ref=e18]
+  - banner [ref=e20]:
+    - generic [ref=e21]:
+      - link "Logo de Flor de Loto" [ref=e22] [cursor=pointer]:
+        - /url: /
+        - img "Logo de Flor de Loto" [ref=e24]
+      - generic [ref=e25]:
+        - button "Hacer pedido" [ref=e26] [cursor=pointer]:
+          - img
+          - generic [ref=e27]: Hacer pedido
+          - img
+        - button "Abrir navegacion" [ref=e28] [cursor=pointer]:
+          - img
+  - main [ref=e29]:
+    - generic [ref=e30]:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic: Floristeria contemporanea en Segovia
+                - heading [level=1]: Flores con gesto sereno, composicion cuidada y compra facil.
+                - paragraph: "Diseñamos ramos y arreglos con una mirada actual: frescos, elegantes y listos para regalar o llenar de vida cualquier espacio."
+                - generic:
+                  - generic:
+                    - img
+                    - text: Flor fresca
+                  - generic:
+                    - img
+                    - text: Segovia
+                  - generic:
+                    - img
+                    - text: Encargos a medida
+              - generic:
+                - link:
+                  - /url: /catalogo
+                  - text: Ver colecciones
+                - link:
+                  - /url: /contacto
+                  - text: Hablar por WhatsApp
+            - generic:
+              - generic:
+                - generic: Flor fresca
+                - generic: Entrega local
+              - generic:
+                - img
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic: El arte de las flores
+                - heading [level=2]: Las flores son nuestras mejores aliadas para sorprender, emocionar y transmitir emociones.
+                - paragraph: Siempre trabajamos con total atencion al detalle y al acabado para que cada ramo, centro o composicion se sienta especial desde el primer vistazo.
+            - generic:
+              - generic:
+                - generic:
+                  - paragraph: Flores frescas seleccionadas con criterio de temporada.
+              - generic:
+                - generic:
+                  - paragraph: Colecciones claras para decidir rapido sin sacrificar gusto.
+              - generic:
+                - generic:
+                  - paragraph: Contacto directo para resolver encargos personalizados.
+              - generic:
+                - generic:
+                  - paragraph: Entrega local y experiencia editorial coherente de punta a punta.
+        - generic:
+          - generic:
+            - generic:
+              - generic: Nuestros servicios
+              - heading [level=2]: Servicio floral completo para regalar, mantener y asesorar con criterio.
+              - paragraph: Flor de Loto no se limita a vender flores. Tambien entrega, mantiene y acompaña cada decision floral para que el resultado se vea bien y funcione de verdad en el contexto donde va a vivir.
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - text: Entrega cuidada
+                    - heading [level=3]: Servicio a domicilio Premium
+                  - generic:
+                    - img
+                - paragraph: Quieres sorprender a alguien especial o decorar tu hogar sin moverte del sofa. En Flor de Loto llevamos tus flores donde nos digas, con una entrega cuidada y una experiencia clara desde el pedido hasta la recepcion.
+                - generic:
+                  - generic:
+                    - paragraph: Pensado para
+                    - paragraph: Regalos, detalles urgentes y encargos para casa sin desplazarte.
+                  - generic:
+                    - paragraph: Cobertura
+                    - paragraph: Segovia y alrededores con entrega clara y preparacion cuidada.
+                - generic:
+                  - paragraph: Incluye
+                - generic:
+                  - generic:
+                    - generic: Ramos personalizados
+                  - generic:
+                    - generic: Entregas en el mismo dia segun disponibilidad
+                  - generic:
+                    - generic: Servicio en Segovia y alrededores
+                  - generic:
+                    - generic: Tarjeta dedicatoria y envoltorios especiales
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - text: Cuidado recurrente
+                    - heading [level=3]: Servicio de Mantenimiento
+                  - generic:
+                    - img
+                - paragraph: "No solo creamos arreglos florales: tambien los cuidamos para que luzcan siempre perfectos. Es una solucion pensada para negocios, eventos y espacios que quieren verse vivos, cuidados y coherentes cada semana."
+                - generic:
+                  - generic:
+                    - paragraph: Pensado para
+                    - paragraph: Negocios y espacios que necesitan verse vivos de forma constante.
+                  - generic:
+                    - paragraph: Frecuencia
+                    - paragraph: Plan semanal, quincenal o mensual segun el ritmo del espacio.
+                - generic:
+                  - paragraph: Incluye
+                - generic:
+                  - generic:
+                    - generic: Oficinas, despachos, hoteles y restaurantes
+                  - generic:
+                    - generic: Visitas periodicas para renovar y mantener arreglos
+                  - generic:
+                    - generic: Riego, limpieza y sustitucion segun necesidad
+                  - generic:
+                    - generic: Frecuencia semanal, quincenal o mensual
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - text: Guia floral
+                    - heading [level=3]: Asesoramiento Personalizado
+                  - generic:
+                    - img
+                - paragraph: Te ayudamos a elegir las flores adecuadas para cada ocasion, espacio o persona. Nuestro asesoramiento floral esta pensado para quienes quieren transmitir emociones, decorar con sentido o construir un momento inolvidable.
+                - generic:
+                  - generic:
+                    - paragraph: Pensado para
+                    - paragraph: Bodas, eventos, regalos y decisiones florales con mas contexto.
+                  - generic:
+                    - paragraph: Resultado
+                    - paragraph: Propuestas afinadas a estilo, ocasion, presupuesto y espacio real.
+                - generic:
+                  - paragraph: Incluye
+                - generic:
+                  - generic:
+                    - generic: Decoracion floral para bodas, eventos y celebraciones
+                  - generic:
+                    - generic: Ideas para hogar o negocio con flores y plantas
+                  - generic:
+                    - generic: Combinaciones de color, flor y estilo adaptadas a ti
+                  - generic:
+                    - generic: Consejos de cuidado, mantenimiento y duracion
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic: Colecciones
+                - heading [level=2]: Ramos y arreglos pensados para vivir bien en casa o regalar mejor.
+            - link:
+              - /url: /catalogo
+              - text: Ver todo el catalogo
+          - generic:
+            - generic:
+              - link:
+                - /url: /catalogo/ramos-de-temporada
+                - generic:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                        - text: Destacada
+                      - generic:
+                        - img
+                        - text: Producto floral
+                    - generic:
+                      - heading [level=3]: Ramos de temporada
+                      - paragraph: Selecciones frescas y ligeras con flor cambiante cada semana.
+                    - generic: Ver coleccion
+            - generic:
+              - link:
+                - /url: /catalogo/ramos-de-novia
+                - generic:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                        - text: Destacada
+                      - generic:
+                        - img
+                        - text: Producto floral
+                    - generic:
+                      - heading [level=3]: Ramos de novia
+                      - paragraph: Diseños delicados para bodas con lectura romantica, limpia y actual.
+                    - generic: Ver coleccion
+            - generic:
+              - link:
+                - /url: /catalogo/flores-para-casa
+                - generic:
+                  - generic:
+                    - img
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                        - text: Destacada
+                      - generic:
+                        - img
+                        - text: Producto floral
+                    - generic:
+                      - heading [level=3]: Flores para casa
+                      - paragraph: Arreglos limpios para vestir salones, mesas y rincones con calma.
+                    - generic: Ver coleccion
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic: Ocasiones
+                - heading [level=2]: Guias sutiles para regalar flores con sentido y sin duda.
+            - link:
+              - /url: /ocasiones
+              - text: Ver ocasiones
+          - generic:
+            - generic:
+              - link:
+                - /url: /ocasiones/cumpleanos-con-color
+                - generic:
+                  - generic:
+                    - img
+                  - generic:
+                    - heading [level=3]: Cumpleanos con color
+                    - paragraph: Ramos alegres con gesto generoso y lectura actual.
+                    - generic: Explorar ocasion
+            - generic:
+              - link:
+                - /url: /ocasiones/aniversarios-serenos
+                - generic:
+                  - generic:
+                    - img
+                  - generic:
+                    - heading [level=3]: Aniversarios serenos
+                    - paragraph: Texturas suaves y una paleta elegante para celebrar con intimidad.
+                    - generic: Explorar ocasion
+            - generic:
+              - link:
+                - /url: /ocasiones/gracias-con-estilo
+                - generic:
+                  - generic:
+                    - img
+                  - generic:
+                    - heading [level=3]: Gracias con estilo
+                    - paragraph: Detalles florales faciles de regalar a equipos, clientes o anfitriones.
+                    - generic: Explorar ocasion
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - img
+              - generic:
+                - generic: Servicio destacado
+                - heading [level=2]: Entregas locales y encargos personalizados
+                - paragraph: Ramos de novia, centros de mesa, plantas, cestas, rosas preservadas y encargos funerarios con compra online o atencion directa.
+                - link:
+                  - /url: /contacto
+                  - text: Cuéntanos tu idea
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: Diferencial de marca
+                    - heading [level=2]: Trabajamos con ritmo editorial, no con catalogo rigido.
+                    - paragraph: La marca vive entre la naturalidad de la flor fresca y una direccion estetica contemporanea. Por eso cada seccion se siente limpia, premium y facil de recorrer.
+                - generic:
+                  - img
+              - list:
+                - listitem:
+                  - generic: Ramos, plantas y detalles florales para el dia a dia
+                - listitem:
+                  - generic: Flor para bodas, ceremonias y celebraciones especiales
+                - listitem:
+                  - generic: Coronas y arreglos funerarios preparados con rapidez y sensibilidad
+        - generic:
+          - generic:
+            - generic:
+              - paragraph: Contacto resumido
+              - heading [level=2]: Compra facil, trato cercano.
+              - paragraph: Escríbenos para encargos express, regalos con entrega local o propuestas para eventos pequeños.
+              - generic:
+                - generic:
+                  - img
+                  - text: Segovia
+                - generic:
+                  - img
+                  - text: Pedido online
+                - generic:
+                  - img
+                  - text: Entrega a domicilio
+              - generic:
+                - paragraph: Entregas a domicilio
+                - generic:
+                  - generic:
+                    - paragraph: domingo
+                    - paragraph: 09:00–14:00
+                  - generic:
+                    - paragraph: lunes
+                    - paragraph: 09:00–20:00
+                  - generic:
+                    - paragraph: martes
+                    - paragraph: 09:00–20:00
+                  - generic:
+                    - paragraph: miercoles
+                    - paragraph: 09:00–20:00
+                  - generic:
+                    - paragraph: jueves
+                    - paragraph: 09:00–20:00
+                  - generic:
+                    - paragraph: viernes
+                    - paragraph: 09:00–14:00
+                  - generic:
+                    - paragraph: sabado
+                    - paragraph: 09:00–14:00
+              - link:
+                - /url: /contacto
+                - text: Ir a contacto
+            - generic:
+              - generic:
+                - generic:
+                  - paragraph: Horario
+                  - generic:
+                    - generic:
+                      - paragraph: Flor de Loto Segovia
+                      - paragraph: Estado actual de la tienda en tiempo real segun la hora local de Segovia.
+                    - generic:
+                      - generic: Cerrado ahora · abre manana a las 10:00
+                      - paragraph: Tienda fisica con horario partido entre semana y apertura de manana en domingo y lunes.
+                - generic:
+                  - generic:
+                    - generic:
+                      - paragraph: Ubicacion
+                      - paragraph: Paseo Conde de Sepulveda, 24. Atendemos tienda, encargos locales y recogidas.
+                    - generic:
+                      - paragraph: Encargos
+                      - paragraph: Si necesitas preparar un regalo o confirmar una entrega, lo mas agil es escribirnos antes.
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic: Encargo y contacto
+                - heading [level=2]: Cuéntanos qué necesitas y te ayudamos a prepararlo.
+                - paragraph: Escribe, cuentanos la ocasion y te proponemos una solucion floral afinada, clara y lista para producir.
+              - generic:
+                - link:
+                  - /url: /contacto
+                  - text: Contactar
+                - link:
+                  - /url: /ocasiones
+                  - text: Explorar ocasiones
+      - generic [ref=e43]:
+        - paragraph [ref=e44]: Preparando tu ramo
+        - paragraph [ref=e45]: Cargando la siguiente pagina con el mismo cuidado con el que se prepara cada detalle floral.
+  - contentinfo [ref=e50]:
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - img "Logo de Flor de Loto" [ref=e56]
+            - heading "Flor de Loto" [level=2] [ref=e57]
+          - paragraph [ref=e58]: Ramos contemporaneos, flores frescas y arreglos con sensibilidad artesanal para regalar y celebrar.
+        - generic [ref=e59]:
+          - heading "Contacto" [level=3] [ref=e60]
+          - generic [ref=e61]:
+            - paragraph [ref=e62]: +34 691 26 41 12
+            - paragraph [ref=e63]: flordelotosegovia@gmail.com
+            - paragraph [ref=e64]: P.º Conde de Sepulveda, 24, 40006 Segovia, Segovia
+        - generic [ref=e65]:
+          - heading "Navegacion" [level=3] [ref=e66]
+          - generic [ref=e67]:
+            - link "Politica de privacidad" [ref=e68] [cursor=pointer]:
+              - /url: /politica-privacidad
+            - link "Politica de cookies" [ref=e69] [cursor=pointer]:
+              - /url: /politica-cookies
+      - generic [ref=e70]:
+        - paragraph [ref=e71]: © 2026 Flor de Loto. Todos los derechos reservados.
+        - generic [ref=e72]:
+          - link "Instagram" [ref=e73] [cursor=pointer]:
+            - /url: https://www.instagram.com/flordelotosegovia/
+          - link "Facebook" [ref=e74] [cursor=pointer]:
+            - /url: https://www.facebook.com/profile.php?id=100093329264769
+  - generic [ref=e76]:
+    - generic [ref=e77]:
+      - paragraph [ref=e78]: Tu privacidad, con criterio.
+      - paragraph [ref=e79]: Usamos cookies necesarias para el funcionamiento del sitio y, si lo aceptas, tambien analiticas y marketing para mejorar la experiencia.
+    - generic [ref=e80]:
+      - button "Aceptar" [ref=e81] [cursor=pointer]
+      - button "Rechazar" [ref=e82] [cursor=pointer]
+      - button "Configurar cookies" [ref=e83] [cursor=pointer]
+  - region "Notifications alt+T"
+  - alert [ref=e84]

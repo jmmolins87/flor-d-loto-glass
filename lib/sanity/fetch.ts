@@ -4,9 +4,11 @@ import { draftMode } from "next/headers";
 
 import type {
   AboutPageData,
+  BodySection,
   Collection,
   ContactPageData,
   HomePage,
+  ImageAsset,
   LegalPageData,
   NavigationSettings,
   Occasion,
@@ -67,32 +69,99 @@ async function fetchOrFallback<T>(
   fallback: T,
   params?: Record<string, unknown>,
 ) {
-  if (!sanityEnabled) {
+  void query;
+  void params;
+  return fallback;
+}
+
+function hasImage(image?: ImageAsset | null) {
+  return Boolean(image?.asset || image?.url);
+}
+
+function mergeImage<T extends { image?: ImageAsset | null }>(value: T, fallback: T): T {
+  return {
+    ...fallback,
+    ...value,
+    image: hasImage(value.image) ? value.image : fallback.image,
+  };
+}
+
+function mergeCollectionWithFallback(collection: Collection, fallback?: Collection): Collection {
+  if (!fallback) {
+    return collection;
+  }
+
+  return {
+    ...fallback,
+    ...collection,
+    coverImage: hasImage(collection.coverImage) ? collection.coverImage : fallback.coverImage,
+    gallery: Array.isArray(collection.gallery) && collection.gallery.length > 0
+      ? collection.gallery
+      : fallback.gallery,
+  };
+}
+
+function mergeOccasionWithFallback(occasion: Occasion, fallback?: Occasion): Occasion {
+  if (!fallback) {
+    return occasion;
+  }
+
+  return {
+    ...fallback,
+    ...occasion,
+    image: hasImage(occasion.image) ? occasion.image : fallback.image,
+  };
+}
+
+function mergeBodySections(sections: BodySection[] | undefined, fallback: BodySection[]) {
+  if (!Array.isArray(sections) || sections.length === 0) {
     return fallback;
   }
 
-  try {
-    const isDraftMode = (await draftMode()).isEnabled;
-    const client = sanityClient.withConfig({
-      perspective: isDraftMode ? "drafts" : "published",
-      stega: { enabled: isDraftMode },
-      token: process.env.SANITY_API_READ_TOKEN,
-      useCdn: isDraftMode ? false : useCdn,
-    });
-    const fetchClient = isDraftMode ? client : sanityClient;
-    const fetchOptions = isDraftMode ? { cache: "no-store" as const } : sanityFetchOptions;
-    const data = await withTimeout(
-      fetchClient.fetch<T | null>(query, params || {}, fetchOptions),
-    );
+  return sections.map((section, index) =>
+    mergeImage(section, fallback[index] || fallback[0] || section),
+  );
+}
 
-    return data ?? fallback;
-  } catch {
-    return fallback;
-  }
+function mergeHomePageWithFallback(page: HomePage): HomePage {
+  const fallbackCollectionsBySlug = new Map(
+    fallbackCollections.map((item) => [item.slug.current, item]),
+  );
+  const fallbackOccasionsBySlug = new Map(
+    fallbackOccasions.map((item) => [item.slug.current, item]),
+  );
+
+  return {
+    ...fallbackHomePage,
+    ...page,
+    hero: mergeImage(page.hero || fallbackHomePage.hero, fallbackHomePage.hero),
+    featuredCollections:
+      Array.isArray(page.featuredCollections) && page.featuredCollections.length > 0
+        ? page.featuredCollections.map((item) =>
+            mergeCollectionWithFallback(item, fallbackCollectionsBySlug.get(item.slug.current)),
+          )
+        : fallbackHomePage.featuredCollections,
+    featuredOccasions:
+      Array.isArray(page.featuredOccasions) && page.featuredOccasions.length > 0
+        ? page.featuredOccasions.map((item) =>
+            mergeOccasionWithFallback(item, fallbackOccasionsBySlug.get(item.slug.current)),
+          )
+        : fallbackHomePage.featuredOccasions,
+    promoBanner: page.promoBanner
+      ? mergeImage(page.promoBanner, fallbackHomePage.promoBanner || page.promoBanner)
+      : fallbackHomePage.promoBanner,
+    brandSection: page.brandSection
+      ? mergeImage(page.brandSection, fallbackHomePage.brandSection)
+      : fallbackHomePage.brandSection,
+  };
 }
 
 export function getSiteSettings(): Promise<SiteSettings> {
-  return fetchOrFallback(siteSettingsQuery, fallbackSiteSettings);
+  return fetchOrFallback(siteSettingsQuery, fallbackSiteSettings).then((settings) => ({
+    ...fallbackSiteSettings,
+    ...settings,
+    logo: hasImage(settings.logo) ? settings.logo : fallbackSiteSettings.logo,
+  }));
 }
 
 export function getNavigationSettings(): Promise<NavigationSettings> {
@@ -100,11 +169,21 @@ export function getNavigationSettings(): Promise<NavigationSettings> {
 }
 
 export function getHomePage(): Promise<HomePage> {
-  return fetchOrFallback(homePageQuery, fallbackHomePage);
+  return fetchOrFallback(homePageQuery, fallbackHomePage).then(mergeHomePageWithFallback);
 }
 
 export function getCollections(): Promise<Collection[]> {
-  return fetchOrFallback(collectionsQuery, fallbackCollections);
+  return fetchOrFallback(collectionsQuery, fallbackCollections).then((collections) => {
+    if (!Array.isArray(collections) || collections.length === 0) {
+      return fallbackCollections;
+    }
+
+    const fallbackBySlug = new Map(fallbackCollections.map((item) => [item.slug.current, item]));
+
+    return collections.map((item) =>
+      mergeCollectionWithFallback(item, fallbackBySlug.get(item.slug.current)),
+    );
+  });
 }
 
 export async function getCollectionBySlug(slug: string) {
@@ -112,11 +191,23 @@ export async function getCollectionBySlug(slug: string) {
   const fallback =
     collections.find((item) => item.slug.current === slug) || collections[0] || null;
 
-  return fetchOrFallback(collectionBySlugQuery, fallback, { slug });
+  return fetchOrFallback(collectionBySlugQuery, fallback, { slug }).then((collection) =>
+    collection && fallback ? mergeCollectionWithFallback(collection, fallback) : collection,
+  );
 }
 
 export function getOccasions(): Promise<Occasion[]> {
-  return fetchOrFallback(occasionsQuery, fallbackOccasions);
+  return fetchOrFallback(occasionsQuery, fallbackOccasions).then((occasions) => {
+    if (!Array.isArray(occasions) || occasions.length === 0) {
+      return fallbackOccasions;
+    }
+
+    const fallbackBySlug = new Map(fallbackOccasions.map((item) => [item.slug.current, item]));
+
+    return occasions.map((item) =>
+      mergeOccasionWithFallback(item, fallbackBySlug.get(item.slug.current)),
+    );
+  });
 }
 
 export async function getOccasionBySlug(slug: string) {
@@ -124,15 +215,18 @@ export async function getOccasionBySlug(slug: string) {
   const fallback =
     occasions.find((item) => item.slug.current === slug) || occasions[0] || null;
 
-  return fetchOrFallback(occasionBySlugQuery, fallback, { slug });
+  return fetchOrFallback(occasionBySlugQuery, fallback, { slug }).then((occasion) =>
+    occasion && fallback ? mergeOccasionWithFallback(occasion, fallback) : occasion,
+  );
 }
 
 export function getAboutPage(): Promise<AboutPageData> {
   return fetchOrFallback(aboutPageQuery, fallbackAboutPage).then((page) => ({
     ...fallbackAboutPage,
     ...page,
+    mainImage: hasImage(page.mainImage) ? page.mainImage : fallbackAboutPage.mainImage,
     bodySections: Array.isArray(page.bodySections)
-      ? page.bodySections
+      ? mergeBodySections(page.bodySections, fallbackAboutPage.bodySections)
       : fallbackAboutPage.bodySections,
   }));
 }

@@ -38,7 +38,7 @@ export function MobileNav({
       </SheetTrigger>
       <SheetContent className="w-full max-w-sm border-l-white/80 bg-[#fffaf6]">
         <SheetHeader>
-          <SheetTitle className="text-left font-serif text-3xl">Menu</SheetTitle>
+          <SheetTitle className="font-nav text-left text-3xl">Menu</SheetTitle>
         </SheetHeader>
         <nav className="mt-10 flex flex-col gap-4">
           <SheetClose asChild>
@@ -55,14 +55,14 @@ export function MobileNav({
                   src="/logo.png"
                 />
               </div>
-              <span className="font-serif text-2xl text-foreground">{siteName}</span>
+              <span className="font-nav text-2xl text-foreground">{siteName}</span>
             </Link>
           </SheetClose>
           {links.map((link) => (
             <SheetClose asChild key={link.href}>
               <Link
                 href={link.href}
-                className="rounded-2xl border border-border/60 bg-white/70 px-4 py-3 font-serif text-xl text-foreground transition-colors hover:bg-accent"
+                className="font-nav rounded-2xl border border-border/60 bg-white/70 px-4 py-3 text-xl text-foreground transition-colors hover:bg-accent"
               >
                 {link.label}
               </Link>

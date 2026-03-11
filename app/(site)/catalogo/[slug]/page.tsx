@@ -278,9 +278,9 @@ export default async function CollectionDetailPage({
                     <p key={detail}>{detail}</p>
                   ))}
                 </ScrollReveal>
-                <div className="grid gap-4 md:grid-cols-3">
+                <div className="grid gap-4">
                   {guide.highlights.map((item, index) => (
-                    <ScrollReveal key={item.label} delay={index * 90} distance={22}>
+                    <ScrollReveal key={item.label} className="w-full" delay={index * 90} distance={22}>
                       <div className="surface p-5">
                         <p className="eyebrow text-primary">{item.label}</p>
                         <p className="mt-3 text-base leading-7 text-foreground/72">

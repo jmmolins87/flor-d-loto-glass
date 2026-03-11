@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-serif: var(--font-serif);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-display);
+  --font-mono: "SFMono-Regular", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -49,10 +49,6 @@
 }
 
 :root {
-  --font-body: "Segoe UI", "Helvetica Neue", sans-serif;
-  --font-display: "Iowan Old Style", "Palatino Linotype", serif;
-  --font-sans: var(--font-body), "Segoe UI", "Helvetica Neue", sans-serif;
-  --font-serif: var(--font-display), "Iowan Old Style", "Palatino Linotype", serif;
   --background: oklch(0.986 0.014 95.7);
   --foreground: oklch(0.24 0.03 40.2);
   --card: oklch(0.995 0.008 91.4);
@@ -96,6 +92,7 @@
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    font-family: var(--font-body), "Segoe UI", "Helvetica Neue", sans-serif;
     background-image:
       radial-gradient(circle at 15% 15%, rgba(131, 225, 204, 0.22), transparent 18%),
       radial-gradient(circle at 85% 12%, rgba(188, 157, 255, 0.22), transparent 20%),
@@ -107,6 +104,7 @@
   h3,
   h4 {
     @apply font-serif tracking-[-0.02em] text-balance;
+    font-family: var(--font-display), "Space Grotesk", "Helvetica Neue", sans-serif;
   }
   p {
     @apply text-pretty;
@@ -160,6 +158,12 @@
 
   .eyebrow {
     @apply inline-flex items-center rounded-full border border-white/70 bg-white/58 px-3 py-1 text-base font-medium uppercase tracking-[0.22em] text-primary shadow-[0_14px_35px_-24px_rgba(72,107,95,0.45)];
+  }
+
+  .font-nav {
+    font-family: var(--font-nav), "Space Grotesk", "Helvetica Neue", sans-serif;
+    letter-spacing: 0.01em;
+    text-transform: none;
   }
 
   .rich-text {

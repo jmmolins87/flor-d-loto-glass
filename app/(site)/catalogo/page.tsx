@@ -80,7 +80,7 @@ export default async function CatalogPage() {
             durar y si buscas una presencia discreta o una pieza con mas impacto.
           </p>
         </ScrollReveal>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4">
           {[
             {
               title: "Compra con criterio",
@@ -99,7 +99,13 @@ export default async function CatalogPage() {
               text: "Si el catalogo no resuelve del todo tu caso, usamos estas lineas como punto de partida para afinar.",
             },
           ].map((item, index) => (
-            <ScrollReveal key={item.title} delay={index * 90} direction="left" distance={28}>
+            <ScrollReveal
+              key={item.title}
+              className="w-full"
+              delay={index * 90}
+              direction="left"
+              distance={28}
+            >
               <div className="surface p-5">
                 <p className="eyebrow text-primary">{item.title}</p>
                 <p className="mt-3 text-base leading-7 text-foreground/72">

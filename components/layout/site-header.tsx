@@ -41,7 +41,7 @@ export function SiteHeader({
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full px-3 py-2 font-serif text-lg font-medium text-foreground/78 transition-colors hover:bg-secondary/18 hover:text-primary"
+              className="font-nav rounded-full px-3 py-2 text-lg text-foreground/78 transition-colors hover:bg-secondary/18 hover:text-primary"
             >
               {link.label}
             </Link>
@@ -54,12 +54,12 @@ export function SiteHeader({
                 className={buttonVariants({
                   variant: "secondary",
                   className:
-                    "group rounded-full border-secondary/70 bg-secondary px-3 sm:px-5 font-serif text-sm sm:text-base text-white shadow-[0_18px_40px_-28px_rgba(159,132,55,0.45)] hover:bg-secondary/92 hover:text-white aria-expanded:bg-secondary aria-expanded:text-white",
+                    "font-nav group hidden rounded-full border-secondary/70 bg-secondary px-5 text-base text-white shadow-[0_18px_40px_-28px_rgba(159,132,55,0.45)] hover:bg-secondary/92 hover:text-white aria-expanded:bg-secondary aria-expanded:text-white sm:inline-flex",
                 })}
                 type="button"
               >
                 <ShoppingBag className="size-4" />
-                <span className="hidden sm:inline">Hacer pedido</span>
+                <span>Hacer pedido</span>
                 <ChevronDown className="size-4 transition-transform duration-200 group-aria-expanded:rotate-180" />
               </button>
             </DropdownMenuTrigger>
@@ -77,7 +77,7 @@ export function SiteHeader({
                   rel="noreferrer"
                   className="flex cursor-pointer flex-col items-start p-4"
                 >
-                  <p className="font-serif text-lg text-[#007a64]">Glovo</p>
+                  <p className="font-nav text-lg text-[#007a64]">Glovo</p>
                   <p className="mt-1 text-sm leading-6 text-foreground/72">
                     Pedido rapido con entrega local.
                   </p>
@@ -93,7 +93,7 @@ export function SiteHeader({
                   rel="noreferrer"
                   className="flex cursor-pointer flex-col items-start p-4"
                 >
-                  <p className="font-serif text-lg text-[#d96d00]">JustEat</p>
+                  <p className="font-nav text-lg text-[#d96d00]">JustEat</p>
                   <p className="mt-1 text-sm leading-6 text-foreground/72">
                     Otra via directa para hacer tu pedido.
                   </p>
