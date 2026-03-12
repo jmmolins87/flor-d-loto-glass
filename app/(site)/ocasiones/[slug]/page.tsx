@@ -90,7 +90,13 @@ export async function generateMetadata({
     description: occasion.excerpt,
     seo: occasion.seo,
     path: `/ocasiones/${occasion.slug.current}`,
-    keywords: [occasion.title, "flores por ocasion", "floristeria Segovia", "regalar flores"],
+    keywords: [
+      occasion.title,
+      "flores por ocasion segovia",
+      "floristeria segovia",
+      "regalar flores segovia",
+      "flor de loto segovia",
+    ],
   });
 }
 

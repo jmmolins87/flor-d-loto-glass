@@ -37,7 +37,7 @@ export function HoursOverview() {
             {storeStatus.message}
           </Badge>
           <p className="mt-4 text-base leading-7 text-foreground/72">
-            Tienda fisica con horario partido entre semana y apertura de manana en domingo y lunes.
+            Tienda fisica con horario partido entre semana y apertura de mañana en domingo y lunes.
           </p>
         </div>
       </div>

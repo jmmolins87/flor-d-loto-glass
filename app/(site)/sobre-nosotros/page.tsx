@@ -13,7 +13,7 @@ export async function generateMetadata() {
     description: page.heroText,
     seo: page.seo,
     path: "/sobre-nosotros",
-    keywords: ["floristeria en Segovia", "sobre Flor de Loto", "flores artesanales Segovia"],
+    keywords: ["floristeria en Segovia", "sobre Flor de Loto Segovia", "flores artesanales Segovia"],
   });
 }
 

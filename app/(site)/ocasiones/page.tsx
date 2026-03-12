@@ -7,10 +7,16 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { getOccasions } from "@/lib/sanity/fetch";
 
 export const metadata = buildMetadata({
-  title: "Flores por ocasion | Flor de Loto",
-  description: "Ideas florales para cumpleaños, aniversarios, agradecimientos y momentos especiales.",
+  title: "Flores por ocasion | Flor de Loto Segovia",
+  description:
+    "Flores por ocasion en Segovia para cumpleaños, aniversarios, agradecimientos y momentos especiales con entrega local.",
   path: "/ocasiones",
-  keywords: ["flores por ocasion", "regalar flores", "floristeria Segovia ocasiones"],
+  keywords: [
+    "flores por ocasion segovia",
+    "regalar flores segovia",
+    "floristeria segovia ocasiones",
+    "ramos para regalo",
+  ],
 });
 
 export default async function OccasionsPage() {

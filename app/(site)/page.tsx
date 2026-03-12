@@ -38,7 +38,7 @@ const services = [
       },
     ],
     description:
-      "Quieres sorprender a alguien especial o decorar tu hogar sin moverte del sofa. En Flor de Loto llevamos tus flores donde nos digas, con una entrega cuidada y una experiencia clara desde el pedido hasta la recepcion.",
+      "Quieres sorprender a alguien especial o decorar tu hogar sin moverte del sofa. En Flor de Loto Segovia llevamos tus flores donde nos digas, con una entrega cuidada y una experiencia clara desde el pedido hasta la recepcion.",
     bullets: [
       "Ramos personalizados",
       "Entregas en el mismo dia segun disponibilidad",
@@ -136,7 +136,7 @@ export default async function HomePage() {
           <SectionHeading
             eyebrow="Nuestros servicios"
             title="Servicio floral completo para regalar, mantener y asesorar con criterio."
-            description="Flor de Loto no se limita a vender flores. Tambien entrega, mantiene y acompaña cada decision floral para que el resultado se vea bien y funcione de verdad en el contexto donde va a vivir."
+            description="Flor de Loto Segovia no se limita a vender flores. Tambien entrega, mantiene y acompaña cada decision floral para que el resultado se vea bien y funcione de verdad en el contexto donde va a vivir."
           />
         </ScrollReveal>
         <div className="mt-10 grid gap-6 xl:grid-cols-3">

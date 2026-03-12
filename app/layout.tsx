@@ -29,8 +29,8 @@ const navFont = Space_Grotesk({
 export const metadata: Metadata = {
   ...buildMetadata({}),
   title: {
-    default: "Flor de Loto | Floristeria premium en Segovia",
-    template: "%s | Flor de Loto",
+    default: "Flor de Loto Segovia | Floristeria en Segovia",
+    template: "%s | Flor de Loto Segovia",
   },
   icons: {
     icon: "/icon.png?v=3",

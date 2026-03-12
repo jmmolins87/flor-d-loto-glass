@@ -103,7 +103,7 @@ export default async function ContactPage() {
         <ScrollReveal className="surface p-6 md:p-8" distance={34}>
           <SectionHeading
             eyebrow="Formulario"
-            title="Cuéntanos que necesitas"
+            title="Cuéntanos qué necesitas"
             description={page.formText}
           />
           <div className="mt-6">

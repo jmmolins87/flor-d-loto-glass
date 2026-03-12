@@ -33,7 +33,7 @@ const atelierImage =
   "https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1200&q=80";
 
 export const fallbackSiteSettings: SiteSettings = {
-  siteName: "Flor de Loto",
+  siteName: "Flor de Loto Segovia",
   siteDescription:
     "Ramos contemporaneos, flores frescas y arreglos con sensibilidad artesanal para regalar y celebrar.",
   phone: "+34 691 26 41 12",
@@ -57,9 +57,9 @@ export const fallbackSiteSettings: SiteSettings = {
     { day: "Provincia", hours: "Segovia" },
   ],
   defaultSeo: {
-    metaTitle: "Flor de Loto | Floristeria premium en Segovia",
+    metaTitle: "Flor de Loto Segovia | Floristeria en Segovia",
     metaDescription:
-      "Ramos de temporada, arreglos para ocasiones y atencion cercana para comprar flores con estilo.",
+      "Floristeria en Segovia con ramos de temporada, flores a domicilio, arreglos para ocasiones, bodas y atencion cercana.",
   },
 };
 
@@ -97,9 +97,9 @@ export const fallbackCollections: Collection[] = [
     coverImage: { url: bouquetImage, alt: "Ramo de temporada con flores suaves" },
     featured: true,
     seo: {
-      metaTitle: "Ramos de temporada | Flor de Loto",
+      metaTitle: "Ramos de temporada | Flor de Loto Segovia",
       metaDescription:
-        "Ramos frescos con flor de temporada y composiciones elegantes para regalo o casa.",
+        "Ramos de temporada en Segovia con flores frescas y composiciones elegantes para regalar, decorar o enviar a domicilio.",
     },
   },
   {
@@ -113,7 +113,7 @@ export const fallbackCollections: Collection[] = [
         children: [
           {
             _type: "span",
-            text: "Flor de Loto trabaja ramos de novia, prendidos y pequeños apoyos florales para ceremonias con una direccion cuidada y nada recargada.",
+            text: "Flor de Loto Segovia trabaja ramos de novia, prendidos y pequeños apoyos florales para ceremonias con una direccion cuidada y nada recargada.",
           },
         ],
       },
@@ -144,7 +144,7 @@ export const fallbackCollections: Collection[] = [
     _id: "collection-4",
     title: "Eventos intimistas",
     slug: { current: "eventos-intimistas" },
-    excerpt: "Piezas para cenas, pedidas, firmas y celebraciones de aforo pequeno.",
+    excerpt: "Piezas para cenas, pedidas, firmas y celebraciones de aforo pequeño.",
     description: [
       {
         _type: "block",
@@ -272,7 +272,7 @@ export const fallbackOccasions: Occasion[] = [
         ],
       },
     ],
-    image: { url: peoniesImage, alt: "Flores de colores para cumpleanos" },
+    image: { url: peoniesImage, alt: "Flores de colores para cumpleaños" },
     featured: true,
   },
   {
@@ -362,9 +362,9 @@ export const fallbackOccasions: Occasion[] = [
 
 export const fallbackHomePage: HomePage = {
   seo: {
-    metaTitle: "Floristeria premium en Segovia | Flor de Loto",
+    metaTitle: "Floristeria en Segovia | Flor de Loto Segovia",
     metaDescription:
-      "Ramos de temporada, colecciones delicadas y una experiencia de compra clara y elegante.",
+      "Floristeria en Segovia con ramos a domicilio, colecciones florales, flores para bodas, eventos y regalos cuidados.",
   },
   hero: {
     eyebrow: "Floristeria contemporanea en Segovia",
@@ -377,7 +377,7 @@ export const fallbackHomePage: HomePage = {
   },
   introSection: {
     title: "Una floristeria local con servicio real para regalo, boda, hogar y despedida.",
-    text: "Flor de Loto trabaja ramos, plantas, composiciones de boda, flor funeral, centros y detalles preservados con atencion cercana desde Segovia y opciones de pedido online.",
+    text: "Flor de Loto Segovia trabaja ramos, plantas, composiciones de boda, flor funeral, centros y detalles preservados con atencion cercana desde Segovia y opciones de pedido online.",
   },
   featuredCollections: fallbackCollections.slice(0, 3),
   featuredOccasions: fallbackOccasions.slice(0, 3),
@@ -401,7 +401,7 @@ export const fallbackHomePage: HomePage = {
   },
   finalCta: {
     title: "Cuéntanos qué necesitas y te ayudamos a prepararlo.",
-    text: "Escribe, cuentanos la ocasion y te proponemos una solucion floral afinada, clara y lista para producir.",
+    text: "Escribe, cuéntanos la ocasion y te proponemos una solucion floral afinada, clara y lista para producir.",
     primaryCta: { label: "Contactar", href: "/contacto" },
     secondaryCta: { label: "Explorar ocasiones", href: "/ocasiones" },
   },
@@ -409,13 +409,13 @@ export const fallbackHomePage: HomePage = {
 
 export const fallbackAboutPage: AboutPageData = {
   seo: {
-      metaTitle: "Sobre Flor de Loto",
+      metaTitle: "Sobre Flor de Loto Segovia",
     metaDescription:
-      "Conoce la filosofia de una floristeria contemporanea que combina cercania, gusto y oficio.",
+      "Conoce Flor de Loto Segovia, una floristeria en Segovia que combina cercania, gusto y oficio floral.",
   },
   heroTitle: "Flores para momentos reales, sin artificio.",
   heroText:
-    "Flor de Loto nace para acercar una floristeria actual a personas que buscan belleza, calma y una experiencia sencilla al comprar flores.",
+    "Flor de Loto Segovia nace para acercar una floristeria actual a personas que buscan belleza, calma y una experiencia sencilla al comprar flores.",
   mainImage: { url: studioImage, alt: "Equipo floral preparando arreglos" },
   bodySections: [
     {
@@ -431,9 +431,9 @@ export const fallbackAboutPage: AboutPageData = {
 
 export const fallbackContactPage: ContactPageData = {
   seo: {
-    metaTitle: "Contacto | Flor de Loto",
+    metaTitle: "Contacto | Flor de Loto Segovia",
     metaDescription:
-      "Habla con la floristeria para pedidos, encargos personalizados y consultas sobre entregas o eventos.",
+      "Contacta con Flor de Loto Segovia para pedidos, encargos personalizados, flores a domicilio y consultas sobre eventos.",
   },
   heroTitle: "Hablemos de tu ramo, tu regalo o tu evento.",
   heroText:
@@ -474,7 +474,7 @@ export const fallbackLegalPages: Record<"cookies" | "privacy", LegalPageData> = 
     title: "Politica de cookies",
     type: "cookies",
     seo: {
-      metaTitle: "Politica de cookies | Flor de Loto",
+      metaTitle: "Politica de cookies | Flor de Loto Segovia",
       metaDescription: "Informacion sobre el uso de cookies y preferencias de consentimiento.",
     },
     body: [
@@ -507,7 +507,7 @@ export const fallbackLegalPages: Record<"cookies" | "privacy", LegalPageData> = 
     title: "Politica de privacidad",
     type: "privacy",
     seo: {
-      metaTitle: "Politica de privacidad | Flor de Loto",
+      metaTitle: "Politica de privacidad | Flor de Loto Segovia",
       metaDescription: "Tratamiento de datos personales en formularios y comunicaciones con la floristeria.",
     },
     body: [

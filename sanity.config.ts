@@ -13,7 +13,7 @@ export default defineConfig({
   basePath: "/admin",
   projectId: projectId || "missing-project-id",
   dataset: dataset || "production",
-  title: "Flor de Loto Studio",
+  title: "Flor de Loto Segovia Studio",
   schema: {
     types: schemaTypes,
   },

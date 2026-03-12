@@ -35,6 +35,7 @@ export function buildMetadata({
   const metaTitle = seo?.metaTitle || title || siteConfig.name;
   const metaDescription =
     seo?.metaDescription || description || siteConfig.description;
+  const metadataKeywords = Array.from(new Set([...siteConfig.keywords, ...(keywords || [])]));
   const noIndex = seo?.noIndex || false;
   const shouldIndex = !noIndex && !siteConfig.url.includes("localhost");
   const url = absoluteUrl(path);
@@ -45,9 +46,11 @@ export function buildMetadata({
     applicationName: siteConfig.name,
     title: metaTitle,
     description: metaDescription,
-    keywords: [...siteConfig.keywords, ...(keywords || [])],
+    keywords: metadataKeywords,
     category: "floristeria",
     referrer: "origin-when-cross-origin",
+    creator: siteConfig.name,
+    publisher: siteConfig.name,
     alternates: {
       canonical: url,
     },
@@ -70,6 +73,11 @@ export function buildMetadata({
       title: metaTitle,
       description: metaDescription,
       images: [image],
+    },
+    other: {
+      "geo.region": "ES-SG",
+      "geo.placename": "Segovia",
+      "language": siteConfig.language,
     },
     robots: {
       index: shouldIndex,

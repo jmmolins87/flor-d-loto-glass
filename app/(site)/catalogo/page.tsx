@@ -7,10 +7,16 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { getCollections } from "@/lib/sanity/fetch";
 
 export const metadata = buildMetadata({
-  title: "Catalogo de colecciones | Flor de Loto",
-  description: "Colecciones florales premium para regalar, decorar o celebrar con sensibilidad contemporanea.",
+  title: "Catalogo de colecciones | Flor de Loto Segovia",
+  description:
+    "Catalogo de flores en Segovia con ramos, centros, plantas y arreglos florales para regalo, eventos y encargos a domicilio.",
   path: "/catalogo",
-  keywords: ["catalogo de flores", "ramos en Segovia", "colecciones florales"],
+  keywords: [
+    "catalogo de flores segovia",
+    "ramos en segovia",
+    "flores a domicilio segovia",
+    "colecciones florales",
+  ],
 });
 
 export default async function CatalogPage() {
@@ -95,7 +101,7 @@ export default async function CatalogPage() {
               text: "Preparamos propuestas pensadas para funcionar bien en Segovia y en encargos de proximidad.",
             },
             {
-              title: "Acompanamiento",
+              title: "Acompañamiento",
               text: "Si el catalogo no resuelve del todo tu caso, usamos estas lineas como punto de partida para afinar.",
             },
           ].map((item, index) => (

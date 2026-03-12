@@ -55,7 +55,7 @@ export const legalInfoPage: StaticPageContent = {
     {
       title: "Titularidad del sitio",
       paragraphs: [
-        "Esta página reúne la información general de carácter legal relativa al uso del sitio web de Flor de Loto.",
+        "Esta página reúne la información general de carácter legal relativa al uso del sitio web de Flor de Loto Segovia.",
         "Los datos completos del titular, contacto y condiciones aplicables deben mantenerse actualizados y coherentes con la actividad real del negocio.",
       ],
     },
@@ -78,7 +78,7 @@ export const termsPage: StaticPageContent = {
     {
       title: "Condiciones generales",
       paragraphs: [
-        "El contenido del sitio tiene finalidad informativa y comercial vinculada a los servicios y productos de Flor de Loto.",
+        "El contenido del sitio tiene finalidad informativa y comercial vinculada a los servicios y productos de Flor de Loto Segovia.",
         "La navegación por la web no establece por sí misma una relación contractual distinta de la que pueda formalizarse posteriormente por encargo o compra.",
       ],
     },

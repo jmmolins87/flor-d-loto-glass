@@ -28,7 +28,7 @@ const collectionGuides: Record<
     highlights: [
       {
         label: "Ideal para",
-        text: "Cumpleanos, detalles de agradecimiento, visitas y regalos de ultima hora con buen gusto.",
+        text: "Cumpleaños, detalles de agradecimiento, visitas y regalos de ultima hora con buen gusto.",
       },
       {
         label: "Sensacion",
@@ -94,7 +94,7 @@ const collectionGuides: Record<
     highlights: [
       {
         label: "Ideal para",
-        text: "Pedidas, cenas especiales, firmas, bautizos pequenos y celebraciones privadas.",
+        text: "Pedidas, cenas especiales, firmas, bautizos pequeños y celebraciones privadas.",
       },
       {
         label: "Estetica",
@@ -218,7 +218,13 @@ export async function generateMetadata({
     description: collection.excerpt,
     seo: collection.seo,
     path: `/catalogo/${collection.slug.current}`,
-    keywords: [collection.title, "catalogo floral", "flores en Segovia", "ramos a domicilio"],
+    keywords: [
+      collection.title,
+      "catalogo floral segovia",
+      "flores en segovia",
+      "ramos a domicilio segovia",
+      "flor de loto segovia",
+    ],
   });
 }
 

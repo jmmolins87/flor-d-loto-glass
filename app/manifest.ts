@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site-config";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${siteConfig.name} | Floristeria premium en Segovia`,
+    name: `${siteConfig.name} | Floristeria en Segovia`,
     short_name: siteConfig.name,
     description: siteConfig.description,
     start_url: "/",

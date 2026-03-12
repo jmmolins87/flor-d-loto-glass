@@ -130,7 +130,7 @@ export function getScheduleStatus(schedule: WeeklyHours, date = new Date()) {
     const nextIntervals = schedule[nextDay] || [];
 
     if (nextIntervals.length) {
-      const dayLabel = offset === 1 ? "manana" : weekdayLabels[nextDay];
+      const dayLabel = offset === 1 ? "mañana" : weekdayLabels[nextDay];
 
       return {
         isOpen: false,
