@@ -31,7 +31,7 @@ export default async function PrivacyPolicyPage() {
         path="/politica-privacidad"
       />
       <Breadcrumbs items={breadcrumbItems} />
-      <ScrollReveal className="surface max-w-4xl p-8 md:p-10" distance={34}>
+      <ScrollReveal className="surface w-full p-8 md:p-10" distance={34}>
         <SectionHeading eyebrow="Legal" title={page.title} />
         <ScrollReveal className="mt-8" delay={90} distance={22}>
           <PortableTextContent value={page.body} />

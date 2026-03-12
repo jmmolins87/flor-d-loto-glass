@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Dialog,
   DialogContent,
@@ -51,11 +52,10 @@ export function CookiePreferencesDialog({
                 Nos ayudan a entender el uso del sitio y mejorar contenidos.
               </p>
             </div>
-            <input
+            <Checkbox
               checked={analytics}
-              onChange={(event) => setAnalytics(event.target.checked)}
-              className="cursor-pointer"
-              type="checkbox"
+              onCheckedChange={(checked) => setAnalytics(checked === true)}
+              className="mt-1 cursor-pointer"
             />
           </label>
           <label className="flex cursor-pointer items-start justify-between gap-4 rounded-2xl border border-border/70 bg-white/70 p-4">
@@ -65,11 +65,10 @@ export function CookiePreferencesDialog({
                 Permiten personalizacion y posibles campañas futuras.
               </p>
             </div>
-            <input
+            <Checkbox
               checked={marketing}
-              onChange={(event) => setMarketing(event.target.checked)}
-              className="cursor-pointer"
-              type="checkbox"
+              onCheckedChange={(checked) => setMarketing(checked === true)}
+              className="mt-1 cursor-pointer"
             />
           </label>
         </div>

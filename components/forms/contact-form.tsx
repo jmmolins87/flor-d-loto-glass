@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoaderCircle } from "lucide-react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -29,6 +30,7 @@ export function ContactForm() {
   });
 
   const {
+    control,
     register,
     handleSubmit,
     reset,
@@ -117,16 +119,27 @@ export function ContactForm() {
           <p className="text-base text-destructive">{errors.message.message}</p>
         ) : null}
       </div>
-      <label className="flex items-start gap-3 rounded-2xl border border-border/70 bg-white/60 p-4">
-        <input
-          type="checkbox"
-          className="mt-1 size-4 rounded border-border text-primary"
-          {...register("privacy")}
-        />
-        <span className="text-base leading-7 text-foreground/72">
-          Acepto la politica de privacidad y autorizo el uso de mis datos para responder a mi consulta.
-        </span>
-      </label>
+      <Controller
+        name="privacy"
+        control={control}
+        render={({ field }) => (
+          <label className="flex items-start gap-3 rounded-2xl border border-border/70 bg-white/60 p-4">
+            <Checkbox
+              checked={field.value}
+              onCheckedChange={(checked) => field.onChange(checked === true)}
+              onBlur={field.onBlur}
+              name={field.name}
+              ref={field.ref}
+              className="mt-1"
+              aria-invalid={Boolean(errors.privacy)}
+            />
+            <span className="text-base leading-7 text-foreground/72">
+              Acepto la politica de privacidad y autorizo el uso de mis datos para responder a mi
+              consulta.
+            </span>
+          </label>
+        )}
+      />
       {errors.privacy ? (
         <p className="text-base text-destructive">{errors.privacy.message}</p>
       ) : null}

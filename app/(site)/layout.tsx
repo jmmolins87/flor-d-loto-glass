@@ -21,7 +21,7 @@ export default async function SiteLayout({
       <SeoSchema settings={settings} />
       <SiteHeader navigation={navigation} settings={settings} />
       <main>{children}</main>
-      <SiteFooter navigation={navigation} settings={settings} />
+      <SiteFooter settings={settings} />
       <CookieBanner />
       <Toaster position="top-right" richColors />
     </>

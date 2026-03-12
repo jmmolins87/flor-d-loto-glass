@@ -3,7 +3,24 @@ import Image from "next/image";
 
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { Separator } from "@/components/ui/separator";
-import type { NavigationSettings, SiteSettings } from "@/lib/sanity/types";
+import type { SiteSettings } from "@/lib/sanity/types";
+
+const footerCompanyLinks = [
+  { label: "Catalogo", href: "/catalogo" },
+  { label: "Ocasiones", href: "/ocasiones" },
+  { label: "Sobre nosotros", href: "/sobre-nosotros" },
+  { label: "FAQ's", href: "/faqs" },
+];
+
+const footerContactLinks = [{ label: "Contacto", href: "/contacto" }];
+
+const footerLegalLinks = [
+  { label: "Legal", href: "/legal" },
+  { label: "Privacidad", href: "/politica-privacidad" },
+  { label: "Terminos de uso", href: "/terminos-de-uso" },
+  { label: "Cookies", href: "/politica-cookies" },
+  { label: "Seguridad", href: "/seguridad" },
+];
 
 const footerSocialLinks = [
   {
@@ -18,19 +35,13 @@ const footerSocialLinks = [
   },
 ];
 
-export function SiteFooter({
-  settings,
-  navigation,
-}: {
-  settings: SiteSettings;
-  navigation: NavigationSettings;
-}) {
+export function SiteFooter({ settings }: { settings: SiteSettings }) {
   const socialLinks = footerSocialLinks;
 
   return (
     <footer className="shell pb-10 pt-6">
       <ScrollReveal className="surface px-8 py-10 md:px-10" distance={28}>
-        <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+        <div className="grid gap-10 md:grid-cols-[1.2fr_0.75fr_0.75fr_0.9fr]">
           <ScrollReveal className="space-y-4" distance={20}>
             <div className="flex items-center gap-3">
               <div className="relative h-12 w-12 overflow-hidden rounded-full bg-white/70">
@@ -60,10 +71,26 @@ export function SiteFooter({
           </ScrollReveal>
           <ScrollReveal className="space-y-4" delay={180} distance={20}>
             <h3 className="text-base font-semibold uppercase tracking-[0.22em] text-foreground/60">
-              Navegacion
+              Compañia
             </h3>
             <div className="flex flex-col gap-2 text-base">
-              {navigation.footerLinks.map((link) => (
+              {footerCompanyLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-foreground/72 transition-colors hover:text-primary"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </ScrollReveal>
+          <ScrollReveal className="space-y-4" delay={240} distance={20}>
+            <h3 className="text-base font-semibold uppercase tracking-[0.22em] text-foreground/60">
+              Legal
+            </h3>
+            <div className="flex flex-col gap-2 text-base">
+              {footerLegalLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -83,6 +110,15 @@ export function SiteFooter({
         >
           <p>© 2026 {settings.siteName}. Todos los derechos reservados.</p>
           <div className="flex flex-wrap gap-4">
+            {footerContactLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="transition-colors hover:text-primary"
+              >
+                {link.label}
+              </Link>
+            ))}
             {socialLinks.map((link) => (
               <Link
                 key={link.href}
