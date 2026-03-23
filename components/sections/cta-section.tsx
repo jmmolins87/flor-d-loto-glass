@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { buttonVariants } from "@/lib/button-styles";
-import type { LinkItem } from "@/lib/sanity/types";
+import type { LinkItem } from "@/lib/cms/types";
 
 export function CTASection({
   title,

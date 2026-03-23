@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { Separator } from "@/components/ui/separator";
-import type { SiteSettings } from "@/lib/sanity/types";
+import type { SiteSettings } from "@/lib/cms/types";
 
 const footerCompanyLinks = [
   { label: "Catalogo", href: "/catalogo" },

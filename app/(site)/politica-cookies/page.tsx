@@ -4,7 +4,7 @@ import { BreadcrumbSchema, WebPageSchema } from "@/components/shared/page-schema
 import { PortableTextContent } from "@/components/shared/portable-text";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { getLegalPage } from "@/lib/sanity/fetch";
+import { getLegalPage } from "@/lib/storyblok/fetch";
 
 export async function generateMetadata() {
   const page = await getLegalPage("cookies");

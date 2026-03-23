@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { BreadcrumbSchema, ItemListSchema, WebPageSchema } from "@/components/shared/page-schema";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { getCollections } from "@/lib/sanity/fetch";
+import { getCollections } from "@/lib/storyblok/fetch";
 
 export const metadata = buildMetadata({
   title: "Catalogo de colecciones | Flor de Loto Segovia",

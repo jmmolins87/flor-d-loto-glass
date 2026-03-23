@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/lib/site-config";
-import { getCollections, getOccasions } from "@/lib/sanity/fetch";
+import { getCollections, getOccasions } from "@/lib/storyblok/fetch";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [collections, occasions] = await Promise.all([

@@ -10,7 +10,7 @@ import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { buttonVariants } from "@/lib/button-styles";
 import { orderLinks } from "@/lib/order-links";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { getContactPage } from "@/lib/sanity/fetch";
+import { getContactPage } from "@/lib/storyblok/fetch";
 
 export async function generateMetadata() {
   const page = await getContactPage();

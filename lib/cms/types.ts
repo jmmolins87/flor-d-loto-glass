@@ -1,4 +1,5 @@
-import type { PortableTextBlock } from "@portabletext/react";
+export type RichTextNode = Record<string, unknown>;
+export type RichTextValue = RichTextNode | RichTextNode[];
 
 export type LinkItem = {
   label: string;
@@ -8,6 +9,7 @@ export type LinkItem = {
 
 export type ImageAsset = {
   alt?: string;
+  filename?: string;
   asset?: unknown;
   url?: string;
 };
@@ -39,7 +41,7 @@ export type Collection = {
   title: string;
   slug: { current: string };
   excerpt?: string;
-  description?: PortableTextBlock[];
+  description?: RichTextValue;
   coverImage?: ImageAsset | null;
   gallery?: ImageAsset[];
   featured?: boolean;
@@ -52,7 +54,7 @@ export type Occasion = {
   title: string;
   slug: { current: string };
   excerpt?: string;
-  description?: PortableTextBlock[];
+  description?: RichTextValue;
   image?: ImageAsset | null;
   featured?: boolean;
   seo?: SeoData;
@@ -141,6 +143,6 @@ export type ContactPageData = {
 export type LegalPageData = {
   title: string;
   type: "cookies" | "privacy";
-  body: PortableTextBlock[];
+  body: RichTextValue;
   seo?: SeoData;
 };

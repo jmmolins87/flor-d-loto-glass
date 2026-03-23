@@ -1,12 +1,14 @@
 import { draftMode } from "next/headers";
 import { NextResponse } from "next/server";
 
+import { storyblokPreviewSecret } from "@/lib/storyblok/env";
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const secret = searchParams.get("secret");
   const slug = searchParams.get("slug") || "/";
 
-  if (!process.env.SANITY_REVALIDATE_SECRET || secret !== process.env.SANITY_REVALIDATE_SECRET) {
+  if (!storyblokPreviewSecret || secret !== storyblokPreviewSecret) {
     return NextResponse.json({ message: "Secret invalido." }, { status: 401 });
   }
 

@@ -6,6 +6,7 @@ import {
   isAdminAuthConfigured,
   verifyAdminSessionValue,
 } from "@/lib/admin-auth";
+import { storyblokEditorUrl } from "@/lib/storyblok/env";
 
 export async function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
@@ -33,9 +34,7 @@ export async function proxy(request: NextRequest) {
 
   const loginUrl = new URL("/admin/login", request.url);
 
-  if (pathname !== "/admin") {
-    loginUrl.searchParams.set("next", `${pathname}${search}`);
-  }
+  loginUrl.searchParams.set("next", pathname !== "/admin" ? `${pathname}${search}` : storyblokEditorUrl);
 
   return NextResponse.redirect(loginUrl);
 }

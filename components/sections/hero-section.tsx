@@ -5,7 +5,7 @@ import { CmsImage } from "@/components/shared/cms-image";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/lib/button-styles";
-import type { HeroData } from "@/lib/sanity/types";
+import type { HeroData } from "@/lib/cms/types";
 
 export function HeroSection({ hero }: { hero: HeroData }) {
   return (

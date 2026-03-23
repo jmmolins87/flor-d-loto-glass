@@ -4,7 +4,7 @@ import { CmsImage } from "@/components/shared/cms-image";
 import { BreadcrumbSchema, WebPageSchema } from "@/components/shared/page-schema";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { getAboutPage } from "@/lib/sanity/fetch";
+import { getAboutPage } from "@/lib/storyblok/fetch";
 
 export async function generateMetadata() {
   const page = await getAboutPage();

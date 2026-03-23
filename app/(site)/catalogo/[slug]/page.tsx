@@ -8,7 +8,7 @@ import { BreadcrumbSchema, ServiceSchema, WebPageSchema } from "@/components/sha
 import { PortableTextContent } from "@/components/shared/portable-text";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { getCollectionBySlug, getCollections } from "@/lib/sanity/fetch";
+import { getCollectionBySlug, getCollections } from "@/lib/storyblok/fetch";
 
 const collectionGuides: Record<
   string,

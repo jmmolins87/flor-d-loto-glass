@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { BreadcrumbSchema, ItemListSchema, WebPageSchema } from "@/components/shared/page-schema";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { getOccasions } from "@/lib/sanity/fetch";
+import { getOccasions } from "@/lib/storyblok/fetch";
 
 export const metadata = buildMetadata({
   title: "Flores por ocasion | Flor de Loto Segovia",

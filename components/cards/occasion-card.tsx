@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { CmsImage } from "@/components/shared/cms-image";
 import { Card, CardContent } from "@/components/ui/card";
-import type { Occasion } from "@/lib/sanity/types";
+import type { Occasion } from "@/lib/cms/types";
 
 export function OccasionCard({ occasion }: { occasion: Occasion }) {
   return (

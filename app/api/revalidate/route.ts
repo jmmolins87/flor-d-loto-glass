@@ -1,10 +1,12 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
+import { storyblokRevalidateSecret } from "@/lib/storyblok/env";
+
 export async function POST(request: Request) {
   const secret = request.headers.get("x-revalidate-secret");
 
-  if (!process.env.SANITY_REVALIDATE_SECRET || secret !== process.env.SANITY_REVALIDATE_SECRET) {
+  if (!storyblokRevalidateSecret || secret !== storyblokRevalidateSecret) {
     return NextResponse.json({ revalidated: false }, { status: 401 });
   }
 

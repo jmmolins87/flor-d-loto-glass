@@ -10,7 +10,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "cdn.sanity.io",
+        hostname: "a.storyblok.com",
+      },
+      {
+        protocol: "https",
+        hostname: "img2.storyblok.com",
       },
     ],
   },

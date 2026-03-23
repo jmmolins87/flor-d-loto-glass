@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CmsImage } from "@/components/shared/cms-image";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { buttonVariants } from "@/lib/button-styles";
-import type { PromoBannerData } from "@/lib/sanity/types";
+import type { PromoBannerData } from "@/lib/cms/types";
 
 export function PromoBanner({ banner }: { banner?: PromoBannerData | null }) {
   if (!banner?.active) {

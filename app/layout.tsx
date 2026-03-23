@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { draftMode } from "next/headers";
 import { Manrope, Space_Grotesk } from "next/font/google";
-import { VisualEditing } from "next-sanity/visual-editing";
 import "./globals.css";
 
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -45,14 +43,9 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isDraftMode = (await draftMode()).isEnabled;
-
   return (
     <html lang="es" className={`${bodyFont.variable} ${displayFont.variable} ${navFont.variable}`}>
-      <body className={bodyFont.className}>
-        {children}
-        {isDraftMode ? <VisualEditing /> : null}
-      </body>
+      <body className={bodyFont.className}>{children}</body>
     </html>
   );
 }

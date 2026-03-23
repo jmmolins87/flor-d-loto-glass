@@ -32,7 +32,7 @@ export function AdminLoginForm({
             id="password"
             name="password"
             type={showPassword ? "text" : "password"}
-            placeholder="Introduce la contraseña del panel"
+            placeholder="Introduce la contraseña del panel editorial"
             autoComplete="current-password"
             disabled={!isConfigured}
             required
@@ -63,7 +63,7 @@ export function AdminLoginForm({
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <Button type="submit" className="rounded-full px-7" disabled={!isConfigured}>
-          Entrar al panel
+          Entrar en Storyblok
         </Button>
         <Button asChild variant="ghost" className="rounded-full px-7">
           <Link href="/">Volver a la web</Link>

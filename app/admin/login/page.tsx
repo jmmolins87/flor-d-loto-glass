@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { KeyRound, LockKeyhole, ShieldCheck } from "lucide-react";
@@ -9,6 +8,7 @@ import {
   isAdminAuthConfigured,
   verifyAdminSessionValue,
 } from "@/lib/admin-auth";
+import { storyblokEditorUrl } from "@/lib/storyblok/env";
 
 type AdminLoginPageProps = {
   searchParams: Promise<{
@@ -33,9 +33,10 @@ export default async function AdminLoginPage({ searchParams }: AdminLoginPagePro
   const params = await searchParams;
   const cookieStore = await cookies();
   const currentSession = cookieStore.get(getAdminSessionCookieName())?.value;
+  const nextPath = params.next || storyblokEditorUrl;
 
   if (await verifyAdminSessionValue(currentSession)) {
-    redirect(params.next || "/admin");
+    redirect(nextPath);
   }
 
   const errorMessage = getErrorMessage(params.error);
@@ -54,8 +55,8 @@ export default async function AdminLoginPage({ searchParams }: AdminLoginPagePro
               Una entrada privada antes de tocar el contenido en vivo.
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-foreground/70">
-              El panel de Sanity queda detrás de una contraseña adicional para evitar accesos
-              directos a `/admin` y separar mejor la parte pública de la operativa editorial.
+              El panel de Storyblok queda detrás de una contraseña adicional para evitar accesos
+              directos y separar mejor la parte pública de la operativa editorial.
             </p>
 
             <div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -63,7 +64,7 @@ export default async function AdminLoginPage({ searchParams }: AdminLoginPagePro
                 <ShieldCheck className="size-5 text-primary" />
                 <p className="mt-4 text-base font-medium text-foreground">Acceso filtrado</p>
                 <p className="mt-2 text-sm leading-6 text-foreground/62">
-                  Solo se entra al Studio si existe una sesión válida.
+                  Solo se entra al editor si existe una sesión válida.
                 </p>
               </div>
               <div className="rounded-[1.8rem] border border-white/80 bg-white/62 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.75)]">
@@ -83,14 +84,14 @@ export default async function AdminLoginPage({ searchParams }: AdminLoginPagePro
               </div>
               <div>
                 <p className="text-sm uppercase tracking-[0.22em] text-primary/78">Panel privado</p>
-                <h2 className="font-serif text-3xl text-foreground">Entrar en `/admin`</h2>
+                <h2 className="font-serif text-3xl text-foreground">Entrar en Storyblok</h2>
               </div>
             </div>
 
             <AdminLoginForm
               errorMessage={errorMessage}
               isConfigured={isConfigured}
-              nextPath={params.next || "/admin"}
+              nextPath={nextPath}
             />
           </section>
         </div>

@@ -4,7 +4,7 @@ import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import type { ContactBlock } from "@/lib/sanity/types";
+import type { ContactBlock } from "@/lib/cms/types";
 
 function getIcon(title: string) {
   const normalized = title.toLowerCase();

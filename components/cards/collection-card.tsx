@@ -4,7 +4,7 @@ import { Leaf, Sparkles } from "lucide-react";
 import { CmsImage } from "@/components/shared/cms-image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import type { Collection } from "@/lib/sanity/types";
+import type { Collection } from "@/lib/cms/types";
 
 function getCollectionBadge(collection: Collection) {
   const source = `${collection.title} ${collection.slug.current}`.toLowerCase();

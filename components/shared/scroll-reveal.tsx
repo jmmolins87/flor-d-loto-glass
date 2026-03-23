@@ -1,7 +1,6 @@
 "use client";
 
-import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from "react";
-import { createElement } from "react";
+import { type CSSProperties, type ReactNode, useCallback, useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -40,9 +39,12 @@ export function ScrollReveal({
   distance = 32,
   once = true,
 }: ScrollRevealProps) {
-  const ref = useRef<HTMLElement | null>(null);
+  const [node, setNode] = useState<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const handleNode = useCallback((value: HTMLElement | null) => {
+    setNode(value);
+  }, []);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -56,11 +58,8 @@ export function ScrollReveal({
 
   useEffect(() => {
     if (prefersReducedMotion) {
-      setIsVisible(true);
       return;
     }
-
-    const node = ref.current;
 
     if (!node) {
       return;
@@ -87,15 +86,17 @@ export function ScrollReveal({
     observer.observe(node);
 
     return () => observer.disconnect();
-  }, [once, prefersReducedMotion]);
+  }, [node, once, prefersReducedMotion]);
 
-  const Component = as;
+  const shouldReveal = prefersReducedMotion || isVisible;
   const style: CSSProperties = prefersReducedMotion
     ? {}
     : {
-        opacity: isVisible ? 1 : 0,
-        filter: isVisible ? "blur(0px)" : "blur(10px)",
-        transform: isVisible ? "translate3d(0, 0, 0) scale(1)" : getTransform(direction, distance),
+        opacity: shouldReveal ? 1 : 0,
+        filter: shouldReveal ? "blur(0px)" : "blur(10px)",
+        transform: shouldReveal
+          ? "translate3d(0, 0, 0) scale(1)"
+          : getTransform(direction, distance),
         transitionDelay: `${delay}ms`,
         transitionDuration: "800ms",
         transitionProperty: "opacity, transform, filter",
@@ -103,15 +104,23 @@ export function ScrollReveal({
         willChange: "opacity, transform, filter",
       };
 
-  return createElement(
-    Component,
-    {
-      ref: (node: HTMLElement | null) => {
-        ref.current = node;
-      },
-      className: cn(className),
-      style,
-    },
-    children,
-  );
+  const props = {
+    ref: handleNode,
+    className: cn(className),
+    style,
+  };
+
+  switch (as) {
+    case "article":
+      return <article {...props}>{children}</article>;
+    case "li":
+      return <li {...props}>{children}</li>;
+    case "section":
+      return <section {...props}>{children}</section>;
+    case "span":
+      return <span {...props}>{children}</span>;
+    case "div":
+    default:
+      return <div {...props}>{children}</div>;
+  }
 }

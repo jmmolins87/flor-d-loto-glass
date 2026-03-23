@@ -15,7 +15,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import type { LinkItem } from "@/lib/sanity/types";
+import type { LinkItem } from "@/lib/cms/types";
 
 export function MobileNav({
   links,

@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { CookieBanner } from "@/components/shared/cookie-banner";
 import { RouteScrollTop } from "@/components/shared/route-scroll-top";
 import { SeoSchema } from "@/components/shared/seo-schema";
-import { getNavigationSettings, getSiteSettings } from "@/lib/sanity/fetch";
+import { getNavigationSettings, getSiteSettings } from "@/lib/storyblok/fetch";
 
 export default async function SiteLayout({
   children,

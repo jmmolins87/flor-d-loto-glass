@@ -1,5 +1,5 @@
 import { siteConfig } from "@/lib/site-config";
-import type { ImageAsset } from "@/lib/sanity/types";
+import type { ImageAsset } from "@/lib/cms/types";
 
 type BreadcrumbItem = {
   name: string;

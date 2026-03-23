@@ -7,7 +7,7 @@ import type {
   NavigationSettings,
   Occasion,
   SiteSettings,
-} from "@/lib/sanity/types";
+} from "@/lib/cms/types";
 
 const heroImage =
   "https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=1400&q=80";

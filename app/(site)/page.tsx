@@ -19,7 +19,7 @@ import { CmsImage } from "@/components/shared/cms-image";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { Badge } from "@/components/ui/badge";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { getHomePage } from "@/lib/sanity/fetch";
+import { getHomePage } from "@/lib/storyblok/fetch";
 import { deliveryHours, formatHoursRow, weekdayLabels } from "@/lib/store-hours";
 
 const services = [

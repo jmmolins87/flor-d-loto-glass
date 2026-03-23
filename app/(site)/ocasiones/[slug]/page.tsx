@@ -9,7 +9,7 @@ import { BreadcrumbSchema, ServiceSchema, WebPageSchema } from "@/components/sha
 import { PortableTextContent } from "@/components/shared/portable-text";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { getOccasionBySlug, getOccasions } from "@/lib/sanity/fetch";
+import { getOccasionBySlug, getOccasions } from "@/lib/storyblok/fetch";
 
 const occasionHighlights: Record<
   string,

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { siteConfig } from "@/lib/site-config";
-import type { SeoData } from "@/lib/sanity/types";
+import type { SeoData } from "@/lib/cms/types";
 
 function absoluteUrl(path = "/") {
   return `${siteConfig.url}${path === "/" ? "" : path}`;

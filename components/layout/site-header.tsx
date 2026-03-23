@@ -11,7 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import type { NavigationSettings, SiteSettings } from "@/lib/sanity/types";
+import type { NavigationSettings, SiteSettings } from "@/lib/cms/types";
 
 export function SiteHeader({
   settings,

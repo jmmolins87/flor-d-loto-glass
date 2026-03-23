@@ -1,5 +1,5 @@
 import { siteConfig } from "@/lib/site-config";
-import type { SiteSettings } from "@/lib/sanity/types";
+import type { SiteSettings } from "@/lib/cms/types";
 
 export function SeoSchema({ settings }: { settings: SiteSettings }) {
   const organizationId = `${siteConfig.url}#organization`;

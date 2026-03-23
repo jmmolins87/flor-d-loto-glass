@@ -1,9 +1,7 @@
 import Image from "next/image";
 
-import { resolveImageUrl } from "@/lib/sanity/image";
-
 type CmsImageProps = {
-  image?: { alt?: string; asset?: unknown; url?: string } | null;
+  image?: { alt?: string; filename?: string; asset?: unknown; url?: string } | null;
   className?: string;
   fill?: boolean;
   sizes?: string;
@@ -21,7 +19,7 @@ export function CmsImage({
   height = 900,
   priority,
 }: CmsImageProps) {
-  const src = resolveImageUrl(image);
+  const src = image?.url || image?.filename;
 
   if (!src) {
     return null;
